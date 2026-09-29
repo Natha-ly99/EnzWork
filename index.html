@@ -2862,6 +2862,159 @@
     );
 
   </script>
+  <!-- =====================================================
+     PANEL ADMINISTRADOR EZNWORK
+===================================================== -->
+
+<div id="adminPanel" class="admin-panel">
+
+  <div class="admin-box">
+
+    <button class="admin-close" onclick="cerrarAdmin()">✕</button>
+
+    <div class="admin-icon">🔐</div>
+
+    <h1>Administrador</h1>
+
+    <p>Panel de control de EznWork</p>
+
+    <div class="admin-options">
+
+      <button onclick="alert('Próximamente: solicitudes de clientes')">
+        📋
+        <span>
+          <strong>Solicitudes</strong>
+          <small>Ver solicitudes de clientes</small>
+        </span>
+      </button>
+
+      <button onclick="alert('Próximamente: gestión de servicios')">
+        🛠️
+        <span>
+          <strong>Servicios</strong>
+          <small>Administrar servicios</small>
+        </span>
+      </button>
+
+      <button onclick="alert('Próximamente: operadores')">
+        👥
+        <span>
+          <strong>Operadores</strong>
+          <small>Gestionar operadores</small>
+        </span>
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+
+.admin-panel {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(5, 5, 12, 0.88);
+  backdrop-filter: blur(10px);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.admin-box {
+  width: 100%;
+  max-width: 500px;
+  background: #11111c;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 24px;
+  padding: 30px;
+  color: white;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+.admin-icon {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.admin-box h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.admin-box p {
+  color: #aaa;
+  margin-bottom: 25px;
+}
+
+.admin-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.admin-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-options button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  padding: 16px;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: #191927;
+  color: white;
+  cursor: pointer;
+  text-align: left;
+  font-size: 25px;
+}
+
+.admin-options button:hover {
+  background: #222238;
+}
+
+.admin-options span {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-options strong {
+  font-size: 16px;
+}
+
+.admin-options small {
+  color: #999;
+  font-size: 13px;
+  margin-top: 3px;
+}
+
+</style>
+
+<script>
+
+function abrirAdmin() {
+  document.getElementById("adminPanel").style.display = "flex";
+}
+
+function cerrarAdmin() {
+  document.getElementById("adminPanel").style.display = "none";
+}
+
+</script>
 
 </body>
 </html>
