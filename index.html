@@ -1,1 +1,2861 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="EznWork — Servicios digitales personalizados: desarrollo web, soluciones con IA, diseño, documentos, redacción y asistencia digital.">
+
+  <meta name="keywords"
+        content="EznWork, desarrollo web, inteligencia artificial, diseño digital, redacción, servicios digitales">
+
+  <meta name="author" content="EznWork">
+
+  <meta name="theme-color" content="#080914">
+
+  <title>EznWork | Servicios digitales</title>
+
+  <style>
+
+    /* =====================================================
+       EZNWORK
+       ESTILOS PRINCIPALES
+    ===================================================== */
+
+    :root {
+      --bg: #080914;
+      --bg-2: #0d1020;
+      --card: rgba(20, 23, 43, 0.78);
+      --card-solid: #14172b;
+
+      --primary: #7c5cff;
+      --primary-2: #5c7cff;
+      --cyan: #27d8ff;
+
+      --text: #ffffff;
+      --text-soft: #aeb5d1;
+
+      --border: rgba(255,255,255,0.09);
+
+      --success: #42e6a4;
+      --danger: #ff647c;
+
+      --radius: 22px;
+
+      --shadow:
+        0 20px 60px rgba(0,0,0,0.35);
+    }
+
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 20% 10%,
+          rgba(124,92,255,0.16),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(39,216,255,0.09),
+          transparent 28%
+        ),
+
+        var(--bg);
+
+      color: var(--text);
+
+      line-height: 1.6;
+
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+
+    /* =====================================================
+       BACKGROUND EFFECT
+    ===================================================== */
+
+    body::before {
+      content: "";
+
+      position: fixed;
+
+      width: 500px;
+      height: 500px;
+
+      left: -250px;
+      top: 40%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(124,92,255,0.10),
+          transparent 70%
+        );
+
+      pointer-events: none;
+
+      z-index: -1;
+    }
+
+    body::after {
+      content: "";
+
+      position: fixed;
+
+      width: 450px;
+      height: 450px;
+
+      right: -220px;
+      bottom: 10%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(39,216,255,0.08),
+          transparent 70%
+        );
+
+      pointer-events: none;
+
+      z-index: -1;
+    }
+
+
+    /* =====================================================
+       CONTAINER
+    ===================================================== */
+
+    .container {
+      width: min(1180px, 92%);
+
+      margin: auto;
+    }
+
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    header {
+      position: sticky;
+
+      top: 0;
+
+      z-index: 1000;
+
+      backdrop-filter: blur(18px);
+
+      background:
+        rgba(8,9,20,0.78);
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 76px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+
+      align-items: center;
+
+      gap: 11px;
+
+      font-size: 22px;
+
+      font-weight: 900;
+
+      letter-spacing: -0.5px;
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 12px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      box-shadow:
+        0 8px 30px rgba(124,92,255,0.35);
+
+      font-weight: 900;
+    }
+
+    .logo span {
+      color: #ffffff;
+    }
+
+    .nav-links {
+      display: flex;
+
+      align-items: center;
+
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: var(--text-soft);
+
+      font-size: 14px;
+
+      font-weight: 600;
+
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-button {
+      padding: 11px 18px;
+
+      border-radius: 12px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        ) !important;
+
+      color: white !important;
+
+      box-shadow:
+        0 8px 25px rgba(124,92,255,0.25);
+    }
+
+    .menu-button {
+      display: none;
+
+      border: 1px solid var(--border);
+
+      background: var(--card);
+
+      color: white;
+
+      width: 44px;
+      height: 44px;
+
+      border-radius: 12px;
+
+      font-size: 22px;
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    .mobile-menu {
+      display: none;
+
+      padding: 12px 0 20px;
+    }
+
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: block;
+
+      padding: 13px 0;
+
+      color: var(--text-soft);
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+      min-height: 680px;
+
+      display: grid;
+
+      grid-template-columns:
+        1.05fr 0.95fr;
+
+      gap: 60px;
+
+      align-items: center;
+
+      padding:
+        80px 0 70px;
+    }
+
+    .badge {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      padding: 8px 13px;
+
+      border:
+        1px solid rgba(124,92,255,0.3);
+
+      background:
+        rgba(124,92,255,0.08);
+
+      color: #c9c0ff;
+
+      border-radius: 999px;
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+      margin-bottom: 22px;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--success);
+
+      box-shadow:
+        0 0 12px var(--success);
+    }
+
+    .hero h1 {
+      font-size:
+        clamp(48px, 7vw, 82px);
+
+      line-height: 0.98;
+
+      letter-spacing: -4px;
+
+      margin-bottom: 25px;
+    }
+
+    .gradient-text {
+      background:
+        linear-gradient(
+          90deg,
+          #ffffff,
+          #9c89ff,
+          #50ddff
+        );
+
+      -webkit-background-clip: text;
+
+      background-clip: text;
+
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 620px;
+
+      color: var(--text-soft);
+
+      font-size: 18px;
+
+      line-height: 1.8;
+
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 13px;
+    }
+
+    .btn {
+      border: 0;
+
+      border-radius: 14px;
+
+      padding: 14px 21px;
+
+      font-weight: 800;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      box-shadow:
+        0 14px 35px rgba(124,92,255,0.28);
+    }
+
+    .btn-secondary {
+      color: white;
+
+      background:
+        rgba(255,255,255,0.04);
+
+      border:
+        1px solid var(--border);
+    }
+
+
+    /* =====================================================
+       HERO VISUAL
+    ===================================================== */
+
+    .hero-visual {
+      position: relative;
+
+      min-height: 500px;
+
+      display: grid;
+
+      place-items: center;
+    }
+
+    .orb {
+      width: 330px;
+      height: 330px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          #b2a5ff 0%,
+          #7c5cff 30%,
+          #3434b8 60%,
+          #10132c 100%
+        );
+
+      box-shadow:
+        0 0 80px rgba(124,92,255,0.35),
+        inset -35px -30px 80px rgba(0,0,0,0.35);
+
+      animation:
+        floatOrb 5s ease-in-out infinite;
+    }
+
+    .orb::after {
+      content: "";
+
+      position: absolute;
+
+      width: 390px;
+      height: 390px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(124,92,255,0.18);
+
+      animation:
+        pulseRing 3s ease-in-out infinite;
+    }
+
+    .floating-card {
+      position: absolute;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      padding: 15px 18px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        rgba(20,23,43,0.82);
+
+      backdrop-filter:
+        blur(14px);
+
+      border-radius: 17px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .floating-card strong {
+      display: block;
+
+      font-size: 14px;
+    }
+
+    .floating-card small {
+      display: block;
+
+      color: var(--text-soft);
+
+      font-size: 11px;
+    }
+
+    .floating-icon {
+      width: 40px;
+      height: 40px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 12px;
+
+      background:
+        rgba(124,92,255,0.15);
+
+      font-size: 18px;
+    }
+
+    .card-one {
+      left: 0;
+      top: 100px;
+
+      animation:
+        floatCard 4s ease-in-out infinite;
+    }
+
+    .card-two {
+      right: -10px;
+      top: 70px;
+
+      animation:
+        floatCard 4.5s ease-in-out infinite reverse;
+    }
+
+    .card-three {
+      right: 20px;
+      bottom: 70px;
+
+      animation:
+        floatCard 5s ease-in-out infinite;
+    }
+
+
+    /* =====================================================
+       SECTION
+    ===================================================== */
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-heading {
+      max-width: 700px;
+
+      margin-bottom: 45px;
+    }
+
+    .eyebrow {
+      color: #9f90ff;
+
+      font-size: 12px;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 10px;
+    }
+
+    .section-heading h2 {
+      font-size:
+        clamp(32px, 5vw, 52px);
+
+      line-height: 1.08;
+
+      letter-spacing: -2px;
+
+      margin-bottom: 15px;
+    }
+
+    .section-heading p {
+      color: var(--text-soft);
+
+      font-size: 16px;
+    }
+
+
+    /* =====================================================
+       SERVICES
+    ===================================================== */
+
+    .services-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .service-card {
+      position: relative;
+
+      padding: 27px;
+
+      min-height: 280px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(24,28,52,0.9),
+          rgba(13,16,32,0.9)
+        );
+
+      border-radius: var(--radius);
+
+      overflow: hidden;
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+
+      border-color:
+        rgba(124,92,255,0.35);
+
+      box-shadow:
+        0 20px 50px rgba(0,0,0,0.25);
+    }
+
+    .service-card::before {
+      content: "";
+
+      position: absolute;
+
+      width: 150px;
+      height: 150px;
+
+      right: -70px;
+      top: -70px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(124,92,255,0.15),
+          transparent 70%
+        );
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 15px;
+
+      background:
+        rgba(124,92,255,0.12);
+
+      border:
+        1px solid rgba(124,92,255,0.16);
+
+      font-size: 23px;
+
+      margin-bottom: 22px;
+    }
+
+    .service-card h3 {
+      font-size: 20px;
+
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--text-soft);
+
+      font-size: 14px;
+
+      line-height: 1.7;
+
+      margin-bottom: 20px;
+    }
+
+    .service-link {
+      color: #bcb2ff;
+
+      font-size: 13px;
+
+      font-weight: 800;
+
+      border: 0;
+
+      background: transparent;
+    }
+
+
+    /* =====================================================
+       HOURLY SECTION
+    ===================================================== */
+
+    .hourly-box {
+      position: relative;
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 0.75fr;
+
+      gap: 30px;
+
+      padding: 45px;
+
+      border:
+        1px solid rgba(124,92,255,0.2);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(124,92,255,0.13),
+          rgba(39,216,255,0.05)
+        );
+
+      border-radius: 28px;
+
+      overflow: hidden;
+    }
+
+    .hourly-box::before {
+      content: "";
+
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      right: -100px;
+      bottom: -150px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(39,216,255,0.08);
+
+      filter: blur(20px);
+    }
+
+    .hourly-box h2 {
+      font-size:
+        clamp(32px, 5vw, 55px);
+
+      line-height: 1;
+
+      letter-spacing: -2px;
+
+      margin-bottom: 17px;
+    }
+
+    .hourly-box p {
+      color: var(--text-soft);
+
+      max-width: 650px;
+    }
+
+    .price {
+      margin-top: 25px;
+
+      display: flex;
+
+      align-items: baseline;
+
+      gap: 8px;
+    }
+
+    .price strong {
+      font-size: 54px;
+
+      line-height: 1;
+    }
+
+    .price span {
+      color: var(--text-soft);
+    }
+
+    .hourly-info {
+      position: relative;
+
+      display: grid;
+
+      gap: 12px;
+
+      align-content: center;
+    }
+
+    .info-row {
+      padding: 15px 17px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        rgba(0,0,0,0.16);
+
+      border-radius: 15px;
+
+      color: var(--text-soft);
+
+      font-size: 14px;
+    }
+
+    .info-row strong {
+      color: white;
+    }
+
+
+    /* =====================================================
+       PROCESS
+    ===================================================== */
+
+    .process-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(5, 1fr);
+
+      gap: 12px;
+    }
+
+    .process-step {
+      padding: 25px 18px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 18px;
+
+      background:
+        rgba(255,255,255,0.025);
+    }
+
+    .step-number {
+      width: 35px;
+      height: 35px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      font-size: 13px;
+
+      font-weight: 900;
+
+      margin-bottom: 18px;
+    }
+
+    .process-step h3 {
+      font-size: 16px;
+
+      margin-bottom: 8px;
+    }
+
+    .process-step p {
+      color: var(--text-soft);
+
+      font-size: 13px;
+    }
+
+
+    /* =====================================================
+       TRUST
+    ===================================================== */
+
+    .trust-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .trust-card {
+      padding: 28px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        rgba(255,255,255,0.025);
+
+      border-radius: 20px;
+    }
+
+    .trust-card .trust-icon {
+      font-size: 25px;
+
+      margin-bottom: 14px;
+    }
+
+    .trust-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .trust-card p {
+      color: var(--text-soft);
+
+      font-size: 14px;
+    }
+
+
+    /* =====================================================
+       CTA
+    ===================================================== */
+
+    .cta {
+      text-align: center;
+
+      padding:
+        70px 30px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 28px;
+
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(124,92,255,0.13),
+          transparent 65%
+        );
+    }
+
+    .cta h2 {
+      font-size:
+        clamp(34px, 5vw, 55px);
+
+      line-height: 1.05;
+
+      letter-spacing: -2px;
+
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: var(--text-soft);
+
+      max-width: 600px;
+
+      margin:
+        0 auto 28px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+      margin-top: 50px;
+
+      border-top:
+        1px solid var(--border);
+
+      padding:
+        35px 0;
+    }
+
+    .footer-content {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 20px;
+    }
+
+    .footer-content p {
+      color: var(--text-soft);
+
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: var(--text-soft);
+
+      font-size: 13px;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+
+    /* =====================================================
+       MODAL
+    ===================================================== */
+
+    .modal {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 2000;
+
+      display: none;
+
+      place-items: center;
+
+      padding: 20px;
+
+      background:
+        rgba(0,0,0,0.72);
+
+      backdrop-filter:
+        blur(8px);
+    }
+
+    .modal.active {
+      display: grid;
+    }
+
+    .modal-box {
+      width: min(560px, 100%);
+
+      max-height: 90vh;
+
+      overflow-y: auto;
+
+      padding: 30px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 24px;
+
+      background:
+        #111426;
+
+      box-shadow:
+        0 30px 100px rgba(0,0,0,0.5);
+
+      animation:
+        modalIn 0.2s ease;
+    }
+
+    .modal-header {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      margin-bottom: 25px;
+    }
+
+    .modal-header h2 {
+      font-size: 25px;
+    }
+
+    .close-modal {
+      width: 38px;
+      height: 38px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 10px;
+
+      background:
+        rgba(255,255,255,0.04);
+
+      color: white;
+
+      font-size: 19px;
+    }
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    .form-group label {
+      display: block;
+
+      margin-bottom: 7px;
+
+      font-size: 13px;
+
+      font-weight: 700;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+
+      padding: 13px 14px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 12px;
+
+      background:
+        rgba(255,255,255,0.045);
+
+      color: white;
+
+      outline: none;
+    }
+
+    .form-group select option {
+      background: #111426;
+
+      color: white;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color:
+        rgba(124,92,255,0.6);
+
+      box-shadow:
+        0 0 0 3px rgba(124,92,255,0.08);
+    }
+
+    .form-group textarea {
+      min-height: 130px;
+
+      resize: vertical;
+    }
+
+    .form-note {
+      color: var(--text-soft);
+
+      font-size: 12px;
+
+      margin-bottom: 18px;
+    }
+
+    .form-submit {
+      width: 100%;
+    }
+
+
+    /* =====================================================
+       TOAST
+    ===================================================== */
+
+    .toast {
+      position: fixed;
+
+      z-index: 3000;
+
+      right: 20px;
+      bottom: 20px;
+
+      width: min(370px, calc(100% - 40px));
+
+      padding: 17px 19px;
+
+      border:
+        1px solid rgba(66,230,164,0.2);
+
+      border-radius: 15px;
+
+      background:
+        rgba(17,20,38,0.95);
+
+      box-shadow:
+        var(--shadow);
+
+      transform:
+        translateY(120px);
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      transition: 0.3s ease;
+    }
+
+    .toast.show {
+      transform:
+        translateY(0);
+
+      opacity: 1;
+    }
+
+    .toast strong {
+      display: block;
+
+      margin-bottom: 3px;
+    }.toast p {
+      color: var(--text-soft);
+
+      font-size: 13px;
+    }
+
+
+    /* =====================================================
+       ANIMATIONS
+    ===================================================== */
+
+    @keyframes floatOrb {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    @keyframes floatCard {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes pulseRing {
+
+      0%,
+      100% {
+        transform: scale(1);
+
+        opacity: 0.4;
+      }
+
+      50% {
+        transform: scale(1.08);
+
+        opacity: 0.1;
+      }
+    }
+
+    @keyframes modalIn {
+
+      from {
+        transform:
+          scale(0.96)
+          translateY(10px);
+
+        opacity: 0;
+      }
+
+      to {
+        transform:
+          scale(1)
+          translateY(0);
+
+        opacity: 1;
+      }
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 1000px) {
+
+      .hero {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        min-height: 470px;
+      }
+
+      .services-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .process-grid {
+        grid-template-columns:
+          repeat(3, 1fr);
+      }
+
+      .hourly-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    @media (max-width: 760px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .hero {
+        min-height: auto;
+
+        padding-top: 60px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero-visual {
+        min-height: 410px;
+      }
+
+      .orb {
+        width: 260px;
+        height: 260px;
+      }
+
+      .orb::after {
+        width: 310px;
+        height: 310px;
+      }
+
+      .floating-card {
+        padding: 11px 13px;
+      }
+
+      .card-one {
+        left: 0;
+        top: 80px;
+      }
+
+      .card-two {
+        right: 0;
+        top: 45px;
+      }
+
+      .card-three {
+        right: 0;
+        bottom: 50px;
+      }
+
+      .services-grid,
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .hourly-box {
+        padding: 30px 24px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+
+        text-align: center;
+      }
+    }
+
+
+    @media (max-width: 500px) {
+
+      .container {
+        width: min(92%, 440px);
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .hero h1 {
+        font-size: 46px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+
+      .hero-visual {
+        min-height: 370px;
+      }
+
+      .orb {
+        width: 210px;
+        height: 210px;
+      }
+
+      .orb::after {
+        width: 250px;
+        height: 250px;
+      }
+
+      .floating-card {
+        transform: scale(0.86);
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta {
+        padding:
+          50px 20px;
+      }
+
+      .modal-box {
+        padding: 22px;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+
+        justify-content: center;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       NAVBAR
+  ===================================================== -->
+
+  <header>
+
+    <div class="container navbar">
+
+      <a href="#inicio" class="logo">
+
+        <div class="logo-icon">
+          E
+        </div>
+
+        <span>EznWork</span>
+
+      </a>
+
+
+      <nav class="nav-links">
+
+        <a href="#inicio">
+          Inicio
+        </a>
+
+        <a href="#servicios">
+          Servicios
+        </a>
+
+        <a href="#proceso">
+          Cómo funciona
+        </a>
+
+        <a href="#hora">
+          Por hora
+        </a>
+
+        <a
+          href="#solicitar"
+          class="nav-button"
+          data-open-request
+        >
+          Solicitar servicio
+        </a>
+
+      </nav>
+
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+    </div>
+
+
+    <div
+      class="container mobile-menu"
+      id="mobileMenu"
+    >
+
+      <a href="#inicio">
+        Inicio
+      </a>
+
+      <a href="#servicios">
+        Servicios
+      </a>
+
+      <a href="#proceso">
+        Cómo funciona
+      </a>
+
+      <a href="#hora">
+        Por hora
+      </a>
+
+      <a href="#solicitar">
+        Solicitar servicio
+      </a>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       HERO
+  ===================================================== -->
+
+  <main id="inicio">
+
+    <section class="container hero">
+
+      <div class="hero-content">
+
+        <div class="badge">
+
+          <span class="badge-dot"></span>
+
+          Servicios digitales personalizados
+
+        </div>
+
+
+        <h1>
+
+          Tu idea.
+
+          <br>
+
+          <span class="gradient-text">
+            Nuestra solución.
+          </span>
+
+        </h1>
+
+
+        <p>
+
+          En EznWork convertimos tus ideas en soluciones
+          digitales. Desarrollo web, inteligencia artificial,
+          diseño, documentos, redacción y asistencia digital
+          adaptados a lo que necesitas.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+          <button
+            class="btn btn-primary"
+            data-open-request
+          >
+            Solicitar un servicio
+          </button>
+
+
+          <a
+            href="#servicios"
+            class="btn btn-secondary"
+          >
+            Ver servicios
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="hero-visual">
+
+        <div class="orb"></div>
+
+
+        <div class="floating-card card-one">
+
+          <div class="floating-icon">
+            🌐
+          </div>
+
+          <div>
+
+            <strong>
+              Desarrollo web
+            </strong>
+
+            <small>
+              Ideas → páginas reales
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <div class="floating-card card-two">
+
+          <div class="floating-icon">
+            🤖
+          </div>
+
+          <div>
+
+            <strong>
+              Soluciones con IA
+            </strong>
+
+            <small>
+              Automatización inteligente
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <div class="floating-card card-three">
+
+          <div class="floating-icon">
+            ⚡
+          </div>
+
+          <div>
+
+            <strong>
+              Trabajo por hora
+            </strong>
+
+            <small>
+              Tú decides cuándo parar
+            </small>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SERVICES
+    ===================================================== -->
+
+    <section
+      id="servicios"
+      class="container"
+    >
+
+      <div class="section-heading">
+
+        <div class="eyebrow">
+          Servicios
+        </div>
+
+        <h2>
+          Lo que podemos hacer por ti.
+        </h2>
+
+        <p>
+          Elige un servicio o explícanos lo que necesitas.
+          Podemos adaptar el trabajo a tu proyecto.
+        </p>
+
+      </div>
+
+
+      <div class="services-grid">
+
+
+        <!-- SERVICE 1 -->
+
+        <article class="service-card">
+
+          <div class="service-icon">
+            🌐
+          </div>
+
+          <h3>
+            Desarrollo web
+          </h3>
+
+          <p>
+            Creación de páginas web modernas,
+            adaptables a móviles y diseñadas
+            para presentar tu proyecto.
+          </p>
+
+          <button
+            class="service-link"
+            data-service="Desarrollo web"
+          >
+            Solicitar →
+          </button>
+
+        </article>
+
+
+
+        <!-- SERVICE 2 -->
+
+        <article class="service-card">
+
+          <div class="service-icon">
+            🤖
+          </div>
+
+          <h3>
+            Soluciones con IA
+          </h3>
+
+          <p>
+            Integración y utilización de inteligencia
+            artificial para mejorar procesos,
+            contenido y tareas digitales.
+          </p>
+
+          <button
+            class="service-link"
+            data-service="Soluciones con IA"
+          >
+            Solicitar →
+          </button>
+
+        </article>
+
+
+
+        <!-- SERVICE 3 -->
+
+        <article class="service-card">
+
+          <div class="service-icon">
+            🎨
+          </div>
+
+          <h3>
+            Diseño digital
+          </h3>
+
+          <p>
+            Diseños para proyectos digitales,
+            redes sociales, presentaciones,
+            páginas y contenido visual.
+          </p>
+
+          <button
+            class="service-link"
+            data-service="Diseño digital"
+          >
+            Solicitar →
+          </button>
+
+        </article>
+
+
+
+        <!-- SERVICE 4 -->
+
+        <article class="service-card">
+
+          <div class="service-icon">
+            📊
+          </div>
+
+          <h3>
+            Documentos y datos
+          </h3>
+
+          <p>
+            Organización, edición, conversión,
+            introducción y estructuración de
+            información y documentos.
+          </p>
+
+          <button
+            class="service-link"
+            data-service="Documentos y datos"
+          >
+            Solicitar →
+          </button>
+
+        </article>
+
+
+
+        <!-- SERVICE 5 -->
+
+        <article class="service-card">
+
+          <div class="service-icon">
+            ✍️
+          </div>
+
+          <h3>
+            Redacción
+          </h3>
+
+          <p>
+            Textos para páginas web, descripciones,
+            documentos, publicaciones y contenido
+            adaptado a tus necesidades.
+          </p>
+
+          <button
+            class="service-link"
+            data-service="Redacción"
+          >
+            Solicitar →
+          </button>
+
+        </article>
+
+
+
+        <!-- SERVICE 6 -->
+
+        <article class="service-card">
+
+          <div class="service-icon">
+            💬
+          </div>
+
+          <h3>
+            Asistencia digital
+          </h3>
+
+          <p>
+            Ayuda con tareas digitales, organización,
+            investigación, mensajes, información y
+            pequeños trabajos administrativos.
+          </p>
+
+          <button
+            class="service-link"
+            data-service="Asistencia digital"
+          >
+            Solicitar →
+          </button>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         HOURLY
+    ===================================================== -->
+
+    <section id="hora">
+
+      <div class="container">
+
+        <div class="hourly-box">
+
+          <div>
+
+            <div class="eyebrow">
+              Trabajo flexible
+            </div>
+
+            <h2>
+              Trabaja por hora.
+            </h2>
+
+            <p>
+              Si no sabes exactamente cuánto trabajo
+              necesitas, puedes solicitar asistencia
+              por hora. Cada hora se gestiona de forma
+              independiente.
+            </p>
+
+
+            <div class="price">
+
+              <strong>
+                $5
+              </strong>
+
+              <span>
+                / hora
+              </span>
+
+            </div>
+
+
+            <br>
+
+
+            <button
+              class="btn btn-primary"
+              data-service="Trabajo por hora"
+            >
+              Solicitar por hora
+            </button>
+
+          </div>
+
+
+          <div class="hourly-info">
+
+            <div class="info-row">
+              <strong>
+                ✓ Control
+              </strong>
+              <br>
+              Puedes detener el trabajo cuando quieras.
+            </div>
+
+            <div class="info-row">
+              <strong>
+                ✓ Pago por trabajo
+              </strong>
+              <br>
+              Cada hora se gestiona individualmente.
+            </div>
+
+            <div class="info-row">
+              <strong>
+                ✓ Flexibilidad
+              </strong>
+              <br>
+              Explica primero lo que necesitas.
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PROCESS
+    ===================================================== -->
+
+    <section
+      id="proceso"
+      class="container"
+    >
+
+      <div class="section-heading">
+
+        <div class="eyebrow">
+          Proceso
+        </div>
+
+        <h2>
+          Así funciona EznWork.
+        </h2>
+
+        <p>
+          Un proceso sencillo para que sepas qué ocurre
+          desde que envías tu solicitud hasta la entrega.
+        </p>
+
+      </div>
+
+
+      <div class="process-grid">
+
+
+        <div class="process-step">
+
+          <div class="step-number">
+            01
+          </div>
+
+          <h3>
+            Solicitas
+          </h3>
+
+          <p>
+            Nos cuentas qué necesitas.
+          </p>
+
+        </div>
+
+
+        <div class="process-step">
+
+          <div class="step-number">
+            02
+          </div>
+
+          <h3>
+            Revisamos
+          </h3>
+
+          <p>
+            Analizamos tu solicitud y los detalles.
+          </p>
+
+        </div>
+
+
+        <div class="process-step">
+
+          <div class="step-number">
+            03
+          </div>
+
+          <h3>
+            Confirmas
+          </h3>
+
+          <p>
+            Acordamos alcance, precio y tiempo.
+          </p>
+
+        </div>
+
+
+        <div class="process-step">
+
+          <div class="step-number">
+            04
+          </div>
+
+          <h3>
+            Comenzamos
+          </h3>
+
+          <p>
+            El trabajo comienza después de la confirmación.
+          </p>
+
+        </div>
+
+
+        <div class="process-step">
+
+          <div class="step-number">
+            05
+          </div>
+
+          <h3>
+            Entregamos
+          </h3>
+
+          <p>
+            Recibes el resultado acordado.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         TRUST
+    ===================================================== -->
+
+    <section class="container">
+
+      <div class="section-heading">
+
+        <div class="eyebrow">
+          EznWork
+        </div>
+
+        <h2>
+          Pensado para trabajar contigo.
+        </h2>
+
+      </div>
+
+
+      <div class="trust-grid">
+
+
+        <div class="trust-card">
+
+          <div class="trust-icon">
+            🧠
+          </div>
+
+          <h3>
+            Soluciones personalizadas
+          </h3>
+
+          <p>
+            No tienes que adaptar tu proyecto
+            a un servicio rígido. Explica qué
+            necesitas y lo revisamos.
+          </p>
+
+        </div>
+
+
+        <div class="trust-card">
+
+          <div class="trust-icon">
+            ⚡
+          </div>
+
+          <h3>
+            Comunicación clara
+          </h3>
+
+          <p>
+            Antes de comenzar se definen los
+            detalles importantes del trabajo.
+          </p>
+
+        </div>
+
+
+        <div class="trust-card">
+
+          <div class="trust-icon">
+            🔒
+          </div>
+
+          <h3>
+            Proceso controlado
+          </h3>
+
+          <p>
+            El servicio comienza después de
+            acordar las condiciones del proyecto.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CTA
+    ===================================================== -->
+
+    <section
+      id="solicitar"
+      class="container"
+    >
+
+      <div class="cta">
+
+        <div class="eyebrow">
+          ¿Tienes un proyecto?
+        </div>
+
+        <h2>
+          Cuéntanos qué necesitas.
+        </h2>
+
+        <p>
+          No necesitas saber exactamente qué servicio
+          elegir. Puedes explicarnos tu idea y revisaremos
+          cómo podemos ayudarte.
+        </p>
+
+        <button
+          class="btn btn-primary"
+          data-open-request
+        >
+          Enviar solicitud
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
+
+  <footer>
+
+    <div class="container footer-content">
+
+      <p>
+        © <span id="year"></span> EznWork.
+        Todos los derechos reservados.
+      </p>
+
+
+      <div class="footer-links">
+
+        <a href="#inicio">
+          Inicio
+        </a>
+
+        <a href="#servicios">
+          Servicios
+        </a>
+
+        <a href="#proceso">
+          Proceso
+        </a>
+
+        <a href="#hora">
+          Por hora
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       REQUEST MODAL
+  ===================================================== -->
+
+  <div
+    class="modal"
+    id="requestModal"
+    aria-hidden="true"
+  >
+
+    <div class="modal-box">
+
+      <div class="modal-header">
+
+        <h2>
+          Solicitar servicio
+        </h2>
+
+        <button
+          class="close-modal"
+          id="closeModal"
+          aria-label="Cerrar"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <form id="requestForm">
+
+
+        <div class="form-group">
+
+          <label for="service">
+            Servicio
+          </label>
+
+          <select
+            id="service"
+            name="service"
+            required
+          >
+
+            <option value="">
+              Selecciona un servicio
+            </option>
+
+            <option value="Desarrollo web">
+              Desarrollo web
+            </option>
+
+            <option value="Soluciones con IA">
+              Soluciones con IA
+            </option>
+
+            <option value="Diseño digital">
+              Diseño digital
+            </option>
+
+            <option value="Documentos y datos">
+              Documentos y datos
+            </option>
+
+            <option value="Redacción">
+              Redacción
+            </option>
+
+            <option value="Asistencia digital">
+              Asistencia digital
+            </option>
+
+            <option value="Trabajo por hora">
+              Trabajo por hora
+            </option>
+
+          </select>
+
+        </div>
+
+
+
+        <div class="form-group">
+
+          <label for="name">
+            Nombre
+          </label>
+
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Tu nombre"
+            required
+          >
+
+        </div>
+
+
+
+        <div class="form-group">
+
+          <label for="contact">
+            Contacto
+          </label>
+
+          <input
+            type="text"
+            id="contact"
+            name="contact"
+            placeholder="Email, WhatsApp u otro contacto"
+            required
+          >
+
+        </div>
+
+
+
+        <div class="form-group">
+
+          <label for="description">
+            ¿Qué necesitas?
+          </label>
+
+          <textarea
+            id="description"
+            name="description"
+            placeholder="Explícanos tu proyecto o tarea..."
+            required
+          ></textarea>
+
+        </div>
+
+
+        <p class="form-note">
+
+          Revisaremos tu solicitud y te responderemos
+          con los detalles del servicio, precio y tiempo
+          estimado antes de comenzar.</p>
+
+
+        <button
+          type="submit"
+          class="btn btn-primary form-submit"
+        >
+          Enviar solicitud
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       TOAST
+  ===================================================== -->
+
+  <div
+    class="toast"
+    id="toast"
+  >
+
+    <strong>
+      Solicitud recibida
+    </strong>
+
+    <p>
+      Tu solicitud fue preparada correctamente.
+      Próximamente conectaremos este formulario
+      con el sistema de solicitudes de EznWork.
+    </p>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ===================================================== -->
+
+  <script>
+
+    /* =====================================================
+       YEAR
+    ===================================================== */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menuButton =
+      document.getElementById("menuButton");
+
+    const mobileMenu =
+      document.getElementById("mobileMenu");
+
+
+    menuButton.addEventListener(
+      "click",
+      function () {
+
+        const active =
+          mobileMenu.classList.toggle("active");
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          active ? "true" : "false"
+        );
+
+        menuButton.textContent =
+          active ? "×" : "☰";
+
+      }
+    );
+
+
+    document
+      .querySelectorAll(".mobile-menu a")
+      .forEach(function (link) {
+
+        link.addEventListener(
+          "click",
+          function () {
+
+            mobileMenu.classList.remove("active");
+
+            menuButton.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+            menuButton.textContent = "☰";
+
+          }
+        );
+
+      });
+
+
+
+    /* =====================================================
+       MODAL
+    ===================================================== */
+
+    const modal =
+      document.getElementById("requestModal");
+
+    const closeModal =
+      document.getElementById("closeModal");
+
+    const serviceSelect =
+      document.getElementById("service");
+
+
+    function openModal(service = "") {
+
+      modal.classList.add("active");
+
+      modal.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+      document.body.style.overflow = "hidden";
+
+
+      if (service) {
+
+        serviceSelect.value = service;
+
+      }
+
+      setTimeout(
+        function () {
+
+          document
+            .getElementById("name")
+            .focus();
+
+        },
+        100
+      );
+
+    }
+
+
+    function closeRequestModal() {
+
+      modal.classList.remove("active");
+
+      modal.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      document.body.style.overflow = "";
+
+    }
+
+
+    document
+      .querySelectorAll("[data-open-request]")
+      .forEach(function (button) {
+
+        button.addEventListener(
+          "click",
+          function () {
+
+            openModal();
+
+          }
+        );
+
+      });
+
+
+    document
+      .querySelectorAll("[data-service]")
+      .forEach(function (button) {
+
+        button.addEventListener(
+          "click",
+          function () {
+
+            const service =
+              button.getAttribute(
+                "data-service"
+              );
+
+            openModal(service);
+
+          }
+        );
+
+      });
+
+
+    closeModal.addEventListener(
+      "click",
+      closeRequestModal
+    );
+
+
+    modal.addEventListener(
+      "click",
+      function (event) {
+
+        if (
+          event.target === modal
+        ) {
+
+          closeRequestModal();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      function (event) {
+
+        if (
+          event.key === "Escape" &&
+          modal.classList.contains("active")
+        ) {
+
+          closeRequestModal();
+
+        }
+
+      }
+    );
+
+
+
+    /* =====================================================
+       FORM
+    ===================================================== */
+
+    const form =
+      document.getElementById("requestForm");
+
+    const toast =
+      document.getElementById("toast");
+
+
+    form.addEventListener(
+      "submit",
+      function (event) {
+
+        event.preventDefault();
+
+
+        /*
+          IMPORTANTE:
+
+          Por ahora el formulario es una demostración.
+
+          Todavía NO guarda los datos en Supabase.
+
+          Más adelante podemos conectar esta parte
+          con la base de datos y crear el panel
+          administrativo de EznWork.
+        */
+
+
+        closeRequestModal();
+
+        toast.classList.add("show");
+
+        form.reset();
+
+
+        setTimeout(
+          function () {
+
+            toast.classList.remove("show");
+
+          },
+          5000
+        );
+
+      }
+    );
+
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+    const revealElements =
+      document.querySelectorAll(
+        ".service-card, .trust-card, .process-step"
+      );
+
+
+    const revealObserver =
+      new IntersectionObserver(
+        function (entries) {
+
+          entries.forEach(
+            function (entry) {
+
+              if (
+                entry.isIntersecting
+              ) {
+
+                entry.target.style.opacity =
+                  "1";
+
+                entry.target.style.transform =
+                  "translateY(0)";
+
+                revealObserver.unobserve(
+                  entry.target
+                );
+
+              }
+
+            }
+          );
+
+        },
+        {
+          threshold: 0.08
+        }
+      );
+
+
+    revealElements.forEach(
+      function (element) {
+
+        element.style.opacity =
+          "0";
+
+        element.style.transform =
+          "translateY(18px)";
+
+        element.style.transition =
+          "opacity 0.6s ease, transform 0.6s ease";
+
+        revealObserver.observe(
+          element
+        );
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
