@@ -30,6 +30,10 @@ a {
     text-decoration: none;
 }
 
+button {
+    font-family: inherit;
+}
+
 .background-glow {
     position: fixed;
     width: 500px;
@@ -54,7 +58,9 @@ a {
 }
 
 
-/* NAVBAR */
+/* ======================================
+   NAVBAR
+====================================== */
 
 .navbar {
     height: 78px;
@@ -65,9 +71,10 @@ a {
     border-bottom: 1px solid #1c1c1c;
     position: sticky;
     top: 0;
-    background: rgba(5,5,5,.82);
+    background: rgba(5, 5, 5, .82);
     backdrop-filter: blur(18px);
-    z-index: 100;
+    -webkit-backdrop-filter: blur(18px);
+    z-index: 1000;
 }
 
 .logo {
@@ -91,7 +98,7 @@ a {
     place-items: center;
     background: var(--red);
     border-radius: 10px;
-    box-shadow: 0 0 25px rgba(255,23,68,.45);
+    box-shadow: 0 0 25px rgba(255, 23, 68, .45);
 }
 
 .navbar nav {
@@ -111,11 +118,14 @@ a {
 
 .nav-actions {
     display: flex;
+    align-items: center;
     gap: 10px;
 }
 
 
-/* BUTTONS */
+/* ======================================
+   BUTTONS
+====================================== */
 
 .btn {
     border: none;
@@ -129,12 +139,12 @@ a {
 .btn-red {
     background: var(--red);
     color: white;
-    box-shadow: 0 0 25px rgba(255,23,68,.18);
+    box-shadow: 0 0 25px rgba(255, 23, 68, .18);
 }
 
 .btn-red:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 35px rgba(255,23,68,.4);
+    box-shadow: 0 0 35px rgba(255, 23, 68, .4);
 }
 
 .btn-outline {
@@ -162,7 +172,9 @@ a {
 }
 
 
-/* HERO */
+/* ======================================
+   HERO
+====================================== */
 
 .hero {
     min-height: calc(100vh - 78px);
@@ -240,7 +252,9 @@ a {
 }
 
 
-/* HERO ORB */
+/* ======================================
+   HERO ORB
+====================================== */
 
 .hero-card {
     display: grid;
@@ -256,7 +270,13 @@ a {
     display: grid;
     place-items: center;
     background:
-        radial-gradient(circle at center, #ff1744 0%, #700018 20%, #150006 58%, transparent 70%);
+        radial-gradient(
+            circle at center,
+            #ff1744 0%,
+            #700018 20%,
+            #150006 58%,
+            transparent 70%
+        );
     animation: float 4s ease-in-out infinite;
 }
 
@@ -272,12 +292,12 @@ a {
     font-size: 35px;
     font-weight: 900;
     box-shadow:
-        0 0 50px rgba(255,23,68,.5),
-        inset 0 0 30px rgba(255,23,68,.12);
+        0 0 50px rgba(255, 23, 68, .5),
+        inset 0 0 30px rgba(255, 23, 68, .12);
 }
 
 @keyframes float {
-    0%,100% {
+    0%, 100% {
         transform: translateY(0);
     }
 
@@ -288,7 +308,7 @@ a {
 
 .floating-card {
     position: absolute;
-    background: rgba(20,20,20,.85);
+    background: rgba(20, 20, 20, .85);
     border: 1px solid #292929;
     padding: 13px 17px;
     border-radius: 12px;
@@ -312,7 +332,9 @@ a {
 }
 
 
-/* SECTIONS */
+/* ======================================
+   SECTIONS
+====================================== */
 
 .section {
     padding: 110px 8%;
@@ -335,7 +357,9 @@ a {
 }
 
 
-/* SERVICES */
+/* ======================================
+   SERVICES
+====================================== */
 
 .service-grid {
     margin-top: 55px;
@@ -346,7 +370,7 @@ a {
 
 .service-card {
     position: relative;
-    background: linear-gradient(145deg,#141414,#0a0a0a);
+    background: linear-gradient(145deg, #141414, #0a0a0a);
     border: 1px solid #222;
     padding: 35px;
     min-height: 260px;
@@ -358,7 +382,7 @@ a {
 .service-card:hover {
     transform: translateY(-8px);
     border-color: #6d071d;
-    box-shadow: 0 20px 60px rgba(255,0,55,.1);
+    box-shadow: 0 20px 60px rgba(255, 0, 55, .1);
 }
 
 .service-icon {
@@ -385,12 +409,14 @@ a {
 }
 
 
-/* PROCESS */
+/* ======================================
+   PROCESS
+====================================== */
 
 .steps {
     margin-top: 60px;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
@@ -414,7 +440,9 @@ a {
 }
 
 
-/* CTA */
+/* ======================================
+   CTA
+====================================== */
 
 .cta {
     margin: 30px 8% 100px;
@@ -422,7 +450,11 @@ a {
     border: 1px solid #35101a;
     border-radius: 20px;
     background:
-        radial-gradient(circle at right, rgba(255,23,68,.12), transparent 40%),
+        radial-gradient(
+            circle at right,
+            rgba(255, 23, 68, .12),
+            transparent 40%
+        ),
         #0c0c0c;
     display: flex;
     justify-content: space-between;
@@ -445,7 +477,9 @@ a {
 }
 
 
-/* FOOTER */
+/* ======================================
+   FOOTER
+====================================== */
 
 footer {
     border-top: 1px solid #191919;
@@ -457,17 +491,20 @@ footer {
 }
 
 
-/* MODAL */
+/* ======================================
+   MODAL
+====================================== */
 
 .modal {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.78);
+    background: rgba(0, 0, 0, .78);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     display: none;
     align-items: center;
     justify-content: center;
-    z-index: 500;
+    z-index: 5000;
     padding: 20px;
 }
 
@@ -476,13 +513,13 @@ footer {
 }
 
 .modal-box {
-    width: min(430px,100%);
+    width: min(430px, 100%);
     background: #101010;
     border: 1px solid #292929;
     border-radius: 20px;
     padding: 35px;
     position: relative;
-    box-shadow: 0 30px 100px rgba(0,0,0,.6);
+    box-shadow: 0 30px 100px rgba(0, 0, 0, .6);
     animation: modalIn .3s ease;
 }
 
@@ -557,7 +594,7 @@ footer {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 #authMessage {
@@ -566,24 +603,72 @@ footer {
 }
 
 
-/* MOBILE */
+/* ======================================
+   MENU MOBILE
+====================================== */
 
 .menu-btn {
     display: none;
-    background: none;
+    background: transparent;
     border: none;
     color: white;
-    font-size: 25px;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 8px;
+    line-height: 1;
+    position: relative;
+    z-index: 1100;
 }
 
-@media(max-width:850px) {
+.menu-btn:hover {
+    color: var(--red);
+}
+
+
+/* ======================================
+   TABLET / MOBILE
+====================================== */
+
+@media (max-width: 850px) {
 
     .navbar {
         padding: 0 5%;
     }
 
+    /* Menú cerrado */
     .navbar nav {
         display: none;
+    }
+
+    /* Menú abierto */
+    .navbar nav.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 78px;
+        left: 5%;
+        right: 5%;
+        gap: 0;
+        padding: 10px;
+        background: rgba(10, 10, 10, .98);
+        border: 1px solid #292929;
+        border-radius: 14px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, .7);
+        z-index: 2000;
+        animation: menuIn .2s ease;
+    }
+
+    .navbar nav.active a {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        border-radius: 9px;
+        color: #ccc;
+    }
+
+    .navbar nav.active a:hover {
+        background: #171717;
+        color: white;
     }
 
     .menu-btn {
@@ -631,7 +716,29 @@ footer {
     }
 }
 
-@media(max-width:500px) {
+
+/* ======================================
+   MENU ANIMATION
+====================================== */
+
+@keyframes menuIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ======================================
+   SMALL PHONES
+====================================== */
+
+@media (max-width: 500px) {
 
     .hero h1 {
         letter-spacing: -2px;
@@ -652,4 +759,32 @@ footer {
     .card-two {
         right: -5px;
     }
-  }
+
+    .navbar {
+        height: 70px;
+    }
+
+    .navbar nav.active {
+        top: 70px;
+        left: 4%;
+        right: 4%;
+    }
+
+    .hero {
+        min-height: auto;
+        padding-top: 50px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .cta h2 {
+        font-size: 28px;
+    }
+}
