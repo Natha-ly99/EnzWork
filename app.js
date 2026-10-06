@@ -7,7 +7,7 @@
 // NO pongas aquí el service_role key.
 // Solamente utilizaremos la clave pública de Supabase.
 
-const SUPABASE_URL = "https://gjdzuhuhevyorupidyat.supabase.co/rest/v1/";
+const SUPABASE_URL = "https://gjdzuhuhevyorupidyat.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_SLXF4C_-UviRH6iMNEBuRA_vKcXQ7Yo";
 
 const supabaseClient = supabase.createClient(
