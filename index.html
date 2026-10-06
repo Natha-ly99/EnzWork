@@ -1,921 +1,748 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
+  <meta charset="UTF-8">
 
-    <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+  <title>EZNWORK — Conecta. Trabaja. Crece.</title>
 
-    <title>EZNWORK — Servicios que se hacen realidad</title>
+  <meta
+    name="description"
+    content="EZNWORK conecta clientes con profesionales para diseño, tecnología, multimedia, IA, marketing, escritura, datos y mucho más."
+  >
 
-    <meta
-        name="description"
-        content="EZNWORK conecta personas que necesitan servicios con operadores preparados para realizarlos."
-    >
+  <meta
+    name="keywords"
+    content="EZNWORK, freelance, trabajos freelance, servicios, diseño, programación, marketing, inteligencia artificial"
+  >
 
-    <meta
-        name="robots"
-        content="index, follow"
-    >
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#080b18">
 
-    <link rel="stylesheet" href="styles.css">
+  <meta property="og:title" content="EZNWORK — Conecta. Trabaja. Crece.">
+  <meta
+    property="og:description"
+    content="Encuentra servicios, oportunidades y profesionales en EZNWORK."
+  >
+  <meta property="og:type" content="website">
 
+  <link rel="icon" href="data:,">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 
 <body>
 
-    <!-- ==========================================
-         FONDOS
-    =========================================== -->
+  <!-- Fondo animado -->
+  <div class="background">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-background"></div>
+  </div>
 
-    <div class="background-glow glow-one"></div>
-    <div class="background-glow glow-two"></div>
+  <!-- NAVBAR -->
+  <header class="navbar">
 
+    <a href="#inicio" class="logo">
+      <span class="logo-mark">E</span>
+      <span>EZN<span>WORK</span></span>
+    </a>
 
-    <!-- ==========================================
-         NAVBAR
-    =========================================== -->
+    <nav id="mainNav" class="main-nav">
 
-    <header class="navbar">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#minijuego">Minijuego</a>
+      <a href="#tu-toque">Tu toque</a>
 
-        <a href="#inicio" class="logo">
+      <button id="navLogin" class="nav-button secondary">
+        Iniciar sesión
+      </button>
 
-            <span class="logo-mark">E</span>
+      <button id="navRegister" class="nav-button primary">
+        Registrarse
+      </button>
 
-            <span>
-                EZN<span>WORK</span>
-            </span>
+    </nav>
 
-        </a>
+    <button
+      id="menuBtn"
+      class="menu-btn"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-
-        <nav id="mainNav">
-
-            <a href="#inicio">
-                Inicio
-            </a>
-
-            <a href="#servicios">
-                Servicios
-            </a>
-
-            <a href="#como-funciona">
-                Cómo funciona
-            </a>
-
-            <!-- Se muestran después del login -->
-
-            <a
-                href="#panelCliente"
-                id="navClient"
-                class="role-nav"
-                style="display:none;"
-            >
-                Cliente
-            </a>
-
-            <a
-                href="#panelOperador"
-                id="navOperator"
-                class="role-nav"
-                style="display:none;"
-            >
-                Operador
-            </a>
-
-            <a
-                href="#panelAdmin"
-                id="navAdmin"
-                class="role-nav"
-                style="display:none;"
-            >
-                Administrador
-            </a>
-
-        </nav>
+  </header>
 
 
-        <div class="nav-actions">
+  <!-- HERO -->
+  <main>
 
-            <!-- VISITANTE -->
+    <section id="inicio" class="hero">
 
-            <button
-                id="loginBtn"
-                class="btn btn-outline"
-            >
-                Iniciar sesión
-            </button>
+      <div class="hero-content reveal">
 
-            <button
-                id="registerBtn"
-                class="btn btn-red"
-            >
-                Registrarse
-            </button>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          La nueva forma de trabajar
+        </div>
 
+        <h1>
+          Convierte tus
+          <span class="gradient-text">habilidades</span>
+          en oportunidades.
+        </h1>
 
-            <!-- USUARIO LOGUEADO -->
+        <p>
+          EZNWORK conecta personas que necesitan un servicio
+          con personas capaces de hacerlo realidad.
+        </p>
 
-            <div
-                id="userArea"
-                style="display:none;"
-            >
+        <div class="hero-buttons">
 
-                <span id="userEmail"></span>
+          <button id="heroRegister" class="big-button primary">
+            <span>Comenzar ahora</span>
+            <span class="arrow">→</span>
+          </button>
 
-                <button
-                    id="logoutBtn"
-                    class="btn btn-outline"
-                >
-                    Cerrar sesión
-                </button>
-
-            </div>
-
-
-            <!-- MENÚ MÓVIL -->
-
-            <button
-                id="menuBtn"
-                class="menu-btn"
-                type="button"
-            >
-                ☰
-            </button>
+          <a href="#servicios" class="big-button glass">
+            Explorar servicios
+          </a>
 
         </div>
 
-    </header>
+        <div class="hero-stats">
 
+          <div>
+            <strong>8+</strong>
+            <span>Categorías</span>
+          </div>
 
+          <div>
+            <strong>∞</strong>
+            <span>Oportunidades</span>
+          </div>
 
-    <!-- ==========================================
-         CONTENIDO
-    =========================================== -->
+          <div>
+            <strong>24/7</strong>
+            <span>Plataforma</span>
+          </div>
 
-    <main>
+        </div>
+
+      </div>
 
 
-        <!-- ======================================
-             HERO
-        ======================================= -->
+      <div class="hero-visual reveal">
 
-        <section
-            id="inicio"
-            class="hero"
-        >
-
-            <div class="hero-content">
-
-                <span class="hero-tag">
-                    EZNWORK
-                </span>
-
-                <h1>
-                    Servicios que
-                    <span>se hacen realidad.</span>
-                </h1>
-
-                <p>
-                    Encuentra personas capaces de realizar lo que necesitas
-                    o conviértete en operador y comienza a trabajar.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <button
-                        id="heroRegisterBtn"
-                        class="btn btn-red"
-                    >
-                        Solicitar un servicio
-                    </button>
-
-                    <a
-                        href="#como-funciona"
-                        class="btn btn-outline"
-                    >
-                        Cómo funciona
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="hero-visual">
-
-                <div class="hero-orb">
-
-                    <span>EZN</span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ======================================
-             SERVICIOS
-        ======================================= -->
-
-        <section
-            id="servicios"
-            class="section"
-        >
-
-            <div class="section-header">
-
-                <span class="section-tag">
-                    SERVICIOS
-                </span>
-
-                <h2>
-                    Lo que podemos hacer
-                </h2>
-
-                <p>
-                    Solicita servicios realizados por personas preparadas
-                    para convertir tus ideas en resultados.
-                </p>
-
-            </div>
-
-
-            <div class="services-grid">
-
-                <article class="service-card">
-
-                    <div class="service-icon">
-                        🎨
-                    </div>
-
-                    <h3>
-                        Diseño gráfico
-                    </h3>
-
-                    <p>
-                        Logos, diseños, contenido visual y mucho más.
-                    </p>
-
-                </article>
-
-
-                <article class="service-card">
-
-                    <div class="service-icon">
-                        💻
-                    </div>
-
-                    <h3>
-                        Desarrollo
-                    </h3>
-
-                    <p>
-                        Soluciones digitales y desarrollo de proyectos.
-                    </p>
-
-                </article>
-
-
-                <article class="service-card">
-
-                    <div class="service-icon">
-                        ✍️
-                    </div>
-
-                    <h3>
-                        Redacción
-                    </h3>
-
-                    <p>
-                        Textos, documentos, contenido y traducciones.
-                    </p>
-
-                </article>
-
-
-                <article class="service-card">
-
-                    <div class="service-icon">
-                        ⚡
-                    </div>
-
-                    <h3>
-                        Otros servicios
-                    </h3>
-
-                    <p>
-                        Necesitas algo diferente? Puedes solicitarlo.
-                    </p>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ======================================
-             CÓMO FUNCIONA
-        ======================================= -->
-
-        <section
-            id="como-funciona"
-            class="section process-section"
-        >
-
-            <div class="section-header">
-
-                <span class="section-tag">
-                    PROCESO
-                </span>
-
-                <h2>
-                    Así funciona EZNWORK
-                </h2>
-
-            </div>
-
-
-            <div class="process-grid">
-
-
-                <div class="process-card">
-
-                    <span class="process-number">
-                        01
-                    </span>
-
-                    <h3>
-                        Solicita
-                    </h3>
-
-                    <p>
-                        El cliente explica qué servicio necesita.
-                    </p>
-
-                </div>
-
-
-                <div class="process-card">
-
-                    <span class="process-number">
-                        02
-                    </span>
-
-                    <h3>
-                        Revisamos
-                    </h3>
-
-                    <p>
-                        EZNWORK revisa la solicitud y prepara el trabajo.
-                    </p>
-
-                </div>
-
-
-                <div class="process-card">
-
-                    <span class="process-number">
-                        03
-                    </span>
-
-                    <h3>
-                        Un operador trabaja
-                    </h3>
-
-                    <p>
-                        Un operador disponible puede tomar el trabajo.
-                    </p>
-
-                </div>
-
-
-                <div class="process-card">
-
-                    <span class="process-number">
-                        04
-                    </span>
-
-                    <h3>
-                        Entrega
-                    </h3>
-
-                    <p>
-                        El operador entrega el resultado y se completa el trabajo.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ======================================
-             PANEL CLIENTE
-        ======================================= -->
-
-        <section
-            id="panelCliente"
-            class="dashboard-section"
-            style="display:none;"
-        >
-
-            <div class="dashboard-header">
-
-                <span class="section-tag">
-                    CLIENTE
-                </span>
-
-                <h2>
-                    Panel del cliente
-                </h2>
-
-                <p id="clientWelcome">
-                    Bienvenido a EZNWORK.
-                </p>
-
-            </div>
-
-
-            <div class="dashboard-grid">
-
-                <div class="dashboard-card">
-
-                    <span class="dashboard-icon">
-                        📋
-                    </span>
-
-                    <h3>
-                        Mis solicitudes
-                    </h3>
-
-                    <p>
-                        Consulta las solicitudes que has creado.
-                    </p>
-
-                    <button
-                        id="refreshRequestsBtn"
-                        class="btn btn-red"
-                    >
-                        Ver solicitudes
-                    </button>
-
-                </div>
-
-
-                <div class="dashboard-card">
-
-                    <span class="dashboard-icon">
-                        ➕
-                    </span>
-
-                    <h3>
-                        Solicitar servicio
-                    </h3>
-
-                    <p>
-                        Próximamente podrás crear tu solicitud desde aquí.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="clientRequests"
-                class="dashboard-list"
-            ></div>
-
-        </section>
-
-
-
-        <!-- ======================================
-             PANEL OPERADOR
-        ======================================= -->
-
-        <section
-            id="panelOperador"
-            class="dashboard-section"
-            style="display:none;"
-        >
-
-            <div class="dashboard-header">
-
-                <span class="section-tag">
-                    OPERADOR
-                </span>
-
-                <h2>
-                    Panel del operador
-                </h2>
-
-                <p id="operatorWelcome">
-                    Encuentra trabajos disponibles.
-                </p>
-
-            </div>
-
-
-            <div class="dashboard-grid">
-
-                <div class="dashboard-card">
-
-                    <span class="dashboard-icon">
-                        ⚡
-                    </span>
-
-                    <h3>
-                        Trabajos disponibles
-                    </h3>
-
-                    <p>
-                        Consulta los trabajos que puedes tomar.
-                    </p>
-
-                    <button
-                        id="refreshJobsBtn"
-                        class="btn btn-red"
-                    >
-                        Ver trabajos
-                    </button>
-
-                </div>
-
-
-                <div class="dashboard-card">
-
-                    <span class="dashboard-icon">
-                        🛠️
-                    </span>
-
-                    <h3>
-                        Mis trabajos
-                    </h3>
-
-                    <p>
-                        Aquí aparecerán los trabajos que hayas tomado.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="operatorJobs"
-                class="dashboard-list"
-            ></div>
-
-        </section>
-
-
-
-        <!-- ======================================
-             PANEL ADMINISTRADOR
-        ======================================= -->
-
-        <section
-            id="panelAdmin"
-            class="dashboard-section"
-            style="display:none;"
-        >
-
-            <div class="dashboard-header">
-
-                <span class="section-tag">
-                    ADMINISTRACIÓN
-                </span>
-
-                <h2>
-                    Panel del administrador
-                </h2>
-
-                <p>
-                    Control general de EZNWORK.
-                </p>
-
-            </div>
-
-
-            <div class="dashboard-grid">
-
-                <div class="dashboard-card">
-
-                    <span class="dashboard-icon">
-                        📋
-                    </span>
-
-                    <h3>
-                        Solicitudes
-                    </h3>
-
-                    <p>
-                        Revisa las solicitudes realizadas por los clientes.
-                    </p>
-
-                    <button
-                        id="adminRequestsBtn"
-                        class="btn btn-red"
-                    >
-                        Ver solicitudes
-                    </button>
-
-                </div>
-
-
-                <div class="dashboard-card">
-
-                    <span class="dashboard-icon">
-                        👥
-                    </span>
-
-                    <h3>
-                        Usuarios
-                    </h3>
-
-                    <p>
-                        Gestiona la plataforma mediante las herramientas administrativas.
-                    </p>
-
-                </div>
-
-
-                <div class="dashboard-card">
-
-                    <span class="dashboard-icon">
-                        💼
-                    </span>
-
-                    <h3>
-                        Trabajos
-                    </h3>
-
-                    <p>
-                        Consulta los trabajos creados dentro de EZNWORK.
-                    </p>
-
-                    <button
-                        id="adminJobsBtn"
-                        class="btn btn-outline"
-                    >
-                        Ver trabajos
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="adminData"
-                class="dashboard-list"
-            ></div>
-
-        </section>
-
-
-
-        <!-- ======================================
-             CTA
-        ======================================= -->
-
-        <section class="cta-section">
-
-            <div class="cta-box">
-
-                <h2>
-                    ¿Listo para empezar?
-                </h2>
-
-                <p>
-                    Crea tu cuenta y forma parte de EZNWORK.
-                </p>
-
-                <button
-                    id="ctaRegisterBtn"
-                    class="btn btn-red"
-                >
-                    Crear cuenta
-                </button>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-
-    <!-- ==========================================
-         FOOTER
-    =========================================== -->
-
-    <footer>
-
-        <div class="footer-content">
+        <div class="floating-card card-one">
+          🎨
+          <div>
+            <strong>Diseño</strong>
+            <small>Nuevo trabajo</small>
+          </div>
+        </div>
+
+        <div class="floating-card card-two">
+          💻
+          <div>
+            <strong>Desarrollo</strong>
+            <small>Disponible</small>
+          </div>
+        </div>
+
+        <div class="main-orb">
+
+          <div class="orb-inner">
+            <span>E</span>
+          </div>
+
+          <div class="orbit orbit-a"></div>
+          <div class="orbit orbit-b"></div>
+          <div class="orbit orbit-c"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="section">
+
+      <div class="section-heading reveal">
+
+        <span class="eyebrow">EXPLORA</span>
+
+        <h2>
+          Todo lo que puedes
+          <span class="gradient-text">hacer</span>
+        </h2>
+
+        <p>
+          Desde diseño hasta inteligencia artificial.
+          Encuentra exactamente lo que necesitas.
+        </p>
+
+      </div>
+
+
+      <div id="servicesGrid" class="services-grid">
+
+        <article class="service-card reveal" data-category="Diseño">
+          <div class="service-icon">🎨</div>
+          <span class="service-number">01</span>
+          <h3>Diseño</h3>
+          <p>
+            Logos, branding, flyers, presentaciones,
+            ilustraciones y mucho más.
+          </p>
+          <button class="service-link" data-service="Diseño">
+            Explorar <span>→</span>
+          </button>
+        </article>
+
+
+        <article class="service-card reveal" data-category="Tecnología">
+          <div class="service-icon">💻</div>
+          <span class="service-number">02</span>
+          <h3>Tecnología</h3>
+          <p>
+            Webs, aplicaciones, programación,
+            WordPress y tiendas online.
+          </p>
+          <button class="service-link" data-service="Tecnología">
+            Explorar <span>→</span>
+          </button>
+        </article>
+
+
+        <article class="service-card reveal" data-category="Video">
+          <div class="service-icon">🎬</div>
+          <span class="service-number">03</span>
+          <h3>Video & Multimedia</h3>
+          <p>
+            Reels, Shorts, YouTube, edición,
+            subtítulos y contenido audiovisual.
+          </p>
+          <button class="service-link" data-service="Video">
+            Explorar <span>→</span>
+          </button>
+        </article>
+
+
+        <article class="service-card reveal" data-category="IA">
+          <div class="service-icon">🤖</div>
+          <span class="service-number">04</span>
+          <h3>IA & Automatización</h3>
+          <p>
+            Automatizaciones, chatbots, generación
+            de contenido y soluciones con IA.
+          </p>
+          <button class="service-link" data-service="IA">
+            Explorar <span>→</span>
+          </button>
+        </article>
+
+
+        <article class="service-card reveal" data-category="Marketing">
+          <div class="service-icon">📱</div>
+          <span class="service-number">05</span>
+          <h3>Marketing & Redes</h3>
+          <p>
+            SEO, redes sociales, publicidad,
+            contenido y generación de clientes.
+          </p>
+          <button class="service-link" data-service="Marketing">
+            Explorar <span>→</span>
+          </button>
+        </article>
+
+
+        <article class="service-card reveal" data-category="Escritura">
+          <div class="service-icon">✍️</div>
+          <span class="service-number">06</span>
+          <h3>Escritura & Traducción</h3>
+          <p>
+            Artículos, copywriting, guiones,
+            traducción y corrección.
+          </p>
+          <button class="service-link" data-service="Escritura">
+            Explorar <span>→</span>
+          </button>
+        </article>
+
+
+        <article class="service-card reveal" data-category="Datos">
+          <div class="service-icon">📊</div>
+          <span class="service-number">07</span>
+          <h3>Datos & Administración</h3>
+          <p>
+            Excel, análisis, data entry,
+            investigación y asistencia virtual.
+          </p>
+          <button class="service-link" data-service="Datos">
+            Explorar <span>→</span>
+          </button>
+        </article>
+
+
+        <article class="service-card reveal" data-category="Otros">
+          <div class="service-icon">🛠️</div>
+          <span class="service-number">08</span>
+          <h3>Otros servicios</h3>
+          <p>
+            ¿No encuentras lo que buscas?
+            Aquí puede estar la solución.
+          </p>
+          <button class="service-link" data-service="Otros">
+            Explorar <span>→</span>
+          </button>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona" class="section process-section">
+
+      <div class="section-heading reveal">
+
+        <span class="eyebrow">SIMPLE</span>
+
+        <h2>
+          ¿Cómo funciona
+          <span class="gradient-text">EZNWORK</span>?
+        </h2>
+
+      </div>
+
+
+      <div class="process-grid">
+
+        <div class="process-card reveal">
+          <span>01</span>
+          <div>🔎</div>
+          <h3>Encuentra</h3>
+          <p>Busca el servicio que necesitas.</p>
+        </div>
+
+        <div class="process-card reveal">
+          <span>02</span>
+          <div>📝</div>
+          <h3>Solicita</h3>
+          <p>Explica qué necesitas realizar.</p>
+        </div>
+
+        <div class="process-card reveal">
+          <span>03</span>
+          <div>⚡</div>
+          <h3>Conecta</h3>
+          <p>Un operador puede realizar el trabajo.</p>
+        </div>
+
+        <div class="process-card reveal">
+          <span>04</span>
+          <div>🚀</div>
+          <h3>Completa</h3>
+          <p>El trabajo llega a su destino.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- MINIJUEGO -->
+    <section id="minijuego" class="section game-section">
+
+      <div class="game-wrapper reveal">
+
+        <div class="game-info">
+
+          <span class="eyebrow">MINIJUEGO</span>
+
+          <h2>
+            Atrapa las
+            <span class="gradient-text">oportunidades.</span>
+          </h2>
+
+          <p>
+            Demuestra tu velocidad. Pulsa los objetivos
+            antes de que desaparezcan y consigue el récord.
+          </p>
+
+          <div class="game-score">
 
             <div>
-
-                <a
-                    href="#inicio"
-                    class="logo"
-                >
-
-                    <span class="logo-mark">
-                        E
-                    </span>
-
-                    <span>
-                        EZN<span>WORK</span>
-                    </span>
-
-                </a>
-
-                <p>
-                    Servicios que se hacen realidad.
-                </p>
-
+              <small>PUNTOS</small>
+              <strong id="score">0</strong>
             </div>
 
-
-            <div class="footer-links">
-
-                <a href="#inicio">
-                    Inicio
-                </a>
-
-                <a href="#servicios">
-                    Servicios
-                </a>
-
-                <a href="#como-funciona">
-                    Cómo funciona
-                </a>
-
+            <div>
+              <small>TIEMPO</small>
+              <strong id="gameTime">30</strong>
             </div>
+
+            <div>
+              <small>RÉCORD</small>
+              <strong id="highScore">0</strong>
+            </div>
+
+          </div>
+
+          <button id="startGame" class="big-button primary">
+            🎮 Comenzar
+          </button>
 
         </div>
 
 
-        <div class="footer-bottom">
+        <div id="gameBoard" class="game-board">
 
-            © 2026 EZNWORK. Todos los derechos reservados.
+          <div class="game-message">
+            <span>⚡</span>
+            <strong>¿Listo?</strong>
+            <small>Comienza el juego</small>
+          </div>
 
         </div>
 
-    </footer>
+      </div>
+
+    </section>
 
 
+    <!-- TU TOQUE -->
+    <section id="tu-toque" class="section touch-section">
 
-    <!-- ==========================================
-         MODAL AUTENTICACIÓN
-    =========================================== -->
+      <div class="touch-content reveal">
 
-    <div
-        id="authModal"
-        class="modal"
-    >
+        <span class="eyebrow">TU TOQUE</span>
 
-        <div class="modal-content">
+        <h2>
+          El trabajo es tuyo.
+          <span class="gradient-text">El toque también.</span>
+        </h2>
+
+        <p>
+          EZNWORK no se trata solamente de completar trabajos.
+          Se trata de aportar algo que solamente tú puedes aportar.
+        </p>
+
+        <div class="touch-buttons">
+
+          <button class="touch-chip">💡 Creatividad</button>
+          <button class="touch-chip">⚡ Rapidez</button>
+          <button class="touch-chip">🎯 Precisión</button>
+          <button class="touch-chip">❤️ Pasión</button>
+
+        </div>
+
+      </div>
+
+      <div class="touch-art reveal">
+        <div class="touch-ring ring-one"></div>
+        <div class="touch-ring ring-two"></div>
+        <div class="touch-core">E</div>
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta-section">
+
+      <div class="cta-card reveal">
+
+        <span class="eyebrow">EMPIEZA HOY</span>
+
+        <h2>
+          Tu próxima oportunidad
+          <span class="gradient-text">está aquí.</span>
+        </h2>
+
+        <p>
+          Crea tu cuenta y entra en EZNWORK.
+        </p>
+
+        <button id="ctaRegister" class="big-button primary">
+          Crear mi cuenta →
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- PANEL DE USUARIO -->
+    <section id="dashboard" class="dashboard-section hidden">
+
+      <div class="dashboard-header">
+
+        <div>
+          <span class="eyebrow">MI ESPACIO</span>
+          <h2 id="dashboardTitle">Bienvenido</h2>
+          <p id="dashboardSubtitle"></p>
+        </div>
+
+        <button id="logoutBtn" class="logout-button">
+          Cerrar sesión
+        </button>
+
+      </div>
+
+
+      <div id="clientPanel" class="role-panel hidden">
+
+        <div class="panel-card">
+          <span>👤</span>
+          <h3>Cliente</h3>
+          <p>Solicita servicios y controla tus trabajos.</p>
+        </div>
+
+        <div class="panel-card">
+          <strong>Mis solicitudes</strong>
+          <div id="clientRequests">
+            Cargando...
+          </div>
+        </div>
+
+      </div>
+
+
+      <div id="operatorPanel" class="role-panel hidden">
+
+        <div class="panel-card">
+          <span>🛠️</span>
+          <h3>Operador</h3>
+          <p>Encuentra trabajos disponibles.</p>
+        </div>
+
+        <div class="panel-card">
+          <strong>Trabajos disponibles</strong>
+          <div id="operatorJobs">
+            Cargando...
+          </div>
+        </div>
+
+      </div>
+
+
+      <div id="adminPanel" class="role-panel hidden">
+
+        <div class="panel-card">
+          <span>👑</span>
+          <h3>Administrador</h3>
+          <p>Control general de EZNWORK.</p>
+        </div>
+
+        <div class="admin-grid">
+
+          <div class="stat-card">
+            <small>USUARIOS</small>
+            <strong id="adminUsers">—</strong>
+          </div>
+
+          <div class="stat-card">
+            <small>SOLICITUDES</small>
+            <strong id="adminRequests">—</strong>
+          </div>
+
+          <div class="stat-card">
+            <small>TRABAJOS</small>
+            <strong id="adminJobs">—</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- AUTH MODAL -->
+  <div id="authModal" class="modal hidden">
+
+    <div class="modal-backdrop"></div>
+
+    <div class="auth-box">
+
+      <button id="closeModal" class="close-modal">
+        ×
+      </button>
+
+      <div class="auth-logo">
+        <span>E</span>
+      </div>
+
+      <h2 id="authTitle">Crear cuenta</h2>
+
+      <p id="authDescription">
+        Únete a EZNWORK.
+      </p>
+
+
+      <form id="authForm">
+
+        <div id="nameField" class="form-field">
+
+          <label>Nombre</label>
+
+          <input
+            id="fullName"
+            type="text"
+            placeholder="Tu nombre"
+          >
+
+        </div>
+
+
+        <div class="form-field">
+
+          <label>Correo electrónico</label>
+
+          <input
+            id="email"
+            type="email"
+            placeholder="correo@ejemplo.com"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-field">
+
+          <label>Contraseña</label>
+
+          <input
+            id="password"
+            type="password"
+            placeholder="••••••••"
+            minlength="6"
+            required
+          >
+
+        </div>
+
+
+        <div id="roleField" class="form-field">
+
+          <label>Quiero ser</label>
+
+          <div class="role-options">
 
             <button
-                id="closeModal"
-                class="modal-close"
-                type="button"
+              type="button"
+              class="role-option active"
+              data-role="client"
             >
-                ×
+              <span>👤</span>
+              Cliente
             </button>
 
-
-            <h2 id="authTitle">
-                Iniciar sesión
-            </h2>
-
-
-            <!-- LOGIN -->
-
-            <form
-                id="loginForm"
+            <button
+              type="button"
+              class="role-option"
+              data-role="operator"
             >
+              <span>🛠️</span>
+              Operador
+            </button>
 
-                <input
-                    id="loginEmail"
-                    type="email"
-                    placeholder="Correo electrónico"
-                    required
-                >
+          </div>
 
-                <input
-                    id="loginPassword"
-                    type="password"
-                    placeholder="Contraseña"
-                    required
-                >
-
-                <button
-                    type="submit"
-                    class="btn btn-red"
-                >
-                    Iniciar sesión
-                </button>
-
-
-                <p class="auth-switch">
-
-                    ¿No tienes cuenta?
-
-                    <a
-                        href="#"
-                        id="showRegister"
-                    >
-                        Registrarse
-                    </a>
-
-                </p>
-
-            </form>
-
-
-
-            <!-- REGISTRO -->
-
-            <form
-                id="registerForm"
-                style="display:none;"
-            >
-
-                <input
-                    id="registerName"
-                    type="text"
-                    placeholder="Nombre completo"
-                    required
-                >
-
-                <input
-                    id="registerEmail"
-                    type="email"
-                    placeholder="Correo electrónico"
-                    required
-                >
-
-                <input
-                    id="registerPassword"
-                    type="password"
-                    placeholder="Contraseña"
-                    minlength="6"
-                    required
-                >
-
-                <button
-                    type="submit"
-                    class="btn btn-red"
-                >
-                    Crear cuenta
-                </button>
-
-
-                <p class="auth-switch">
-
-                    ¿Ya tienes cuenta?
-
-                    <a
-                        href="#"
-                        id="showLogin"
-                    >
-                        Iniciar sesión
-                    </a>
-
-                </p>
-
-            </form>
+          <input
+            id="selectedRole"
+            type="hidden"
+            value="client"
+          >
 
         </div>
+
+
+        <div id="inviteField" class="form-field hidden">
+
+          <label>Código de operador</label>
+
+          <input
+            id="inviteCode"
+            type="text"
+            placeholder="Código de invitación"
+          >
+
+        </div>
+
+
+        <button class="auth-submit" type="submit">
+          <span id="authSubmitText">Crear cuenta</span>
+          <span>→</span>
+        </button>
+
+      </form>
+
+
+      <p id="authMessage" class="auth-message"></p>
+
+
+      <div class="auth-switch">
+
+        <span id="authSwitchText">
+          ¿Ya tienes una cuenta?
+        </span>
+
+        <button id="authSwitch">
+          Iniciar sesión
+        </button>
+
+      </div>
 
     </div>
 
+  </div>
 
 
-    <!-- ==========================================
-         SCRIPTS
-    =========================================== -->
+  <footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <div class="footer-logo">
+      EZN<span>WORK</span>
+    </div>
 
-    <script src="app.js"></script>
+    <p>
+      Conecta. Trabaja. Crece.
+    </p>
+
+    <span>
+      © 2026 EZNWORK
+    </span>
+
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
 
 </body>
-
     </html>
