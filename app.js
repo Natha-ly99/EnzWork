@@ -24,8 +24,12 @@ const modal = document.getElementById("authModal");
 
 const loginBtn = document.getElementById("loginBtn");
 const registerBtn = document.getElementById("registerBtn");
+
 const heroRegister = document.getElementById("heroRegister");
 const ctaRegister = document.getElementById("ctaRegister");
+
+const menuBtn = document.getElementById("menuBtn");
+const mainNav = document.getElementById("mainNav");
 
 const closeModal = document.getElementById("closeModal");
 
@@ -45,6 +49,30 @@ let registerMode = false;
 
 
 // ======================================
+// MENÚ
+// ======================================
+
+menuBtn.addEventListener("click", () => {
+
+    mainNav.classList.toggle("active");
+
+});
+
+
+// Cerrar menú al pulsar un enlace
+
+mainNav.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        mainNav.classList.remove("active");
+
+    });
+
+});
+
+
+// ======================================
 // MODAL
 // ======================================
 
@@ -53,10 +81,12 @@ function openLogin() {
     registerMode = false;
 
     authTitle.textContent = "Iniciar sesión";
+
     authSubtitle.textContent =
         "Entra a tu cuenta de EZNWORK.";
 
     nameInput.classList.add("hidden");
+
     nameInput.required = false;
 
     switchAuth.textContent =
@@ -65,6 +95,7 @@ function openLogin() {
     authMessage.textContent = "";
 
     modal.classList.add("active");
+
 }
 
 
@@ -73,10 +104,12 @@ function openRegister() {
     registerMode = true;
 
     authTitle.textContent = "Crear cuenta";
+
     authSubtitle.textContent =
         "Únete a EZNWORK.";
 
     nameInput.classList.remove("hidden");
+
     nameInput.required = true;
 
     switchAuth.textContent =
@@ -85,6 +118,7 @@ function openRegister() {
     authMessage.textContent = "";
 
     modal.classList.add("active");
+
 }
 
 
@@ -95,6 +129,7 @@ function closeAuthModal() {
     authForm.reset();
 
     authMessage.textContent = "";
+
 }
 
 
@@ -108,12 +143,17 @@ ctaRegister.addEventListener("click", openRegister);
 
 closeModal.addEventListener("click", closeAuthModal);
 
+
 switchAuth.addEventListener("click", () => {
 
     if (registerMode) {
+
         openLogin();
+
     } else {
+
         openRegister();
+
     }
 
 });
@@ -122,7 +162,9 @@ switchAuth.addEventListener("click", () => {
 modal.addEventListener("click", (event) => {
 
     if (event.target === modal) {
+
         closeAuthModal();
+
     }
 
 });
@@ -137,10 +179,13 @@ authForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const email = emailInput.value.trim();
+
     const password = passwordInput.value;
+
     const name = nameInput.value.trim();
 
     authMessage.textContent = "Procesando...";
+
 
     try {
 
@@ -148,40 +193,62 @@ authForm.addEventListener("submit", async (event) => {
 
             const { data, error } =
                 await supabaseClient.auth.signUp({
+
                     email,
+
                     password,
+
                     options: {
+
                         data: {
+
                             full_name: name
+
                         }
+
                     }
+
                 });
 
+
             if (error) {
+
                 throw error;
+
             }
+
 
             authMessage.textContent =
                 "Cuenta creada. Revisa tu correo si Supabase solicita confirmación.";
+
 
         } else {
 
             const { error } =
                 await supabaseClient.auth.signInWithPassword({
+
                     email,
+
                     password
+
                 });
 
+
             if (error) {
+
                 throw error;
+
             }
+
 
             authMessage.textContent =
                 "Sesión iniciada.";
 
+
             await loadUserPanel();
 
         }
+
 
     } catch (error) {
 
@@ -202,10 +269,14 @@ authForm.addEventListener("submit", async (event) => {
 async function getCurrentUser() {
 
     const {
+
         data: { user }
+
     } = await supabaseClient.auth.getUser();
 
+
     return user;
+
 }
 
 
@@ -217,16 +288,25 @@ async function loadUserPanel() {
 
     const user = await getCurrentUser();
 
+
     if (!user) {
+
         return;
+
     }
+
 
     const { data: profile, error } =
         await supabaseClient
+
             .from("profiles")
+
             .select("id, role, full_name")
+
             .eq("id", user.id)
+
             .single();
+
 
     if (error) {
 
@@ -236,11 +316,15 @@ async function loadUserPanel() {
             "No se pudo cargar tu perfil.";
 
         return;
+
     }
+
 
     console.log("Usuario:", profile);
 
+
     closeAuthModal();
+
 
     showRoleWelcome(profile);
 
@@ -255,15 +339,18 @@ function showRoleWelcome(profile) {
 
     let message = "";
 
+
     if (profile.role === "admin") {
 
         message =
             "🛡️ Bienvenido al panel de administración.";
 
+
     } else if (profile.role === "operator") {
 
         message =
             "👷 Bienvenido, operador. Hay trabajos esperándote.";
+
 
     } else {
 
@@ -271,6 +358,7 @@ function showRoleWelcome(profile) {
             "👤 Bienvenido a EZNWORK.";
 
     }
+
 
     console.log(message);
 
@@ -285,14 +373,19 @@ async function checkSession() {
 
     const user = await getCurrentUser();
 
+
     if (!user) {
+
         return;
+
     }
+
 
     console.log(
         "Sesión activa:",
         user.email
     );
+
 
     await loadUserPanel();
 
